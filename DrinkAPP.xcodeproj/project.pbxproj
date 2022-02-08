@@ -12,7 +12,6 @@
 		AC1E882C2782E90C00058206 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E882A2782E90C00058206 /* Main.storyboard */; };
 		AC1E882E2782E90D00058206 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC1E882D2782E90D00058206 /* Assets.xcassets */; };
 		AC1E88312782E90D00058206 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC1E882F2782E90D00058206 /* LaunchScreen.storyboard */; };
-		AC1E88392783033100058206 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E88382783033100058206 /* MenuTableViewController.swift */; };
 		AC1E883B2783040600058206 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E883A2783040600058206 /* MenuTableViewCell.swift */; };
 		AC1E883D27830CC200058206 /* MenuResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E883C27830CC200058206 /* MenuResponseModels.swift */; };
 		AC1E883F27830F9100058206 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E883E27830F9100058206 /* MenuController.swift */; };
@@ -20,12 +19,15 @@
 		AC1E884327848E9800058206 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E884227848E9800058206 /* OptionsViewController.swift */; };
 		AC1E88452788A90700058206 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E88442788A90700058206 /* ListController.swift */; };
 		AC1E88472788AFF800058206 /* ListResponsesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E88462788AFF800058206 /* ListResponsesModels.swift */; };
-		AC1E884C2789ECB900058206 /* OptionsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E884B2789ECB900058206 /* OptionsResult.swift */; };
 		AC1E884E2789FE5C00058206 /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E884D2789FE5C00058206 /* ListTableViewController.swift */; };
 		AC1E8850278AC57100058206 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1E884F278AC57100058206 /* ListTableViewCell.swift */; };
-		ACB572F627987F8200FCB998 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB572F527987F8200FCB998 /* Options.swift */; };
 		ACB5732627A1BE8F00FCB998 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5732527A1BE8F00FCB998 /* ListViewController.swift */; };
 		ACB5732A27A90E1600FCB998 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5732927A90E1600FCB998 /* MenuViewController.swift */; };
+		ACB5732E27ABF63900FCB998 /* ChangeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5732D27ABF63900FCB998 /* ChangeListViewController.swift */; };
+		ACB5733227AEE5F500FCB998 /* ChangeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5733127AEE5F500FCB998 /* ChangeListController.swift */; };
+		ACB5733427AEE7F000FCB998 /* OptionsResultModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5733327AEE7F000FCB998 /* OptionsResultModels.swift */; };
+		ACB5733627AEE81F00FCB998 /* OptionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5733527AEE81F00FCB998 /* OptionsController.swift */; };
+		ACB5733A27B2950400FCB998 /* SweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5733927B2950400FCB998 /* SweetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +38,6 @@
 		AC1E882D2782E90D00058206 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC1E88302782E90D00058206 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC1E88322782E90D00058206 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC1E88382783033100058206 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		AC1E883A2783040600058206 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		AC1E883C27830CC200058206 /* MenuResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuResponseModels.swift; sourceTree = "<group>"; };
 		AC1E883E27830F9100058206 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -44,12 +45,15 @@
 		AC1E884227848E9800058206 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		AC1E88442788A90700058206 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		AC1E88462788AFF800058206 /* ListResponsesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponsesModels.swift; sourceTree = "<group>"; };
-		AC1E884B2789ECB900058206 /* OptionsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsResult.swift; sourceTree = "<group>"; };
 		AC1E884D2789FE5C00058206 /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		AC1E884F278AC57100058206 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
-		ACB572F527987F8200FCB998 /* Options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		ACB5732527A1BE8F00FCB998 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		ACB5732927A90E1600FCB998 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		ACB5732D27ABF63900FCB998 /* ChangeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeListViewController.swift; sourceTree = "<group>"; };
+		ACB5733127AEE5F500FCB998 /* ChangeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeListController.swift; sourceTree = "<group>"; };
+		ACB5733327AEE7F000FCB998 /* OptionsResultModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsResultModels.swift; sourceTree = "<group>"; };
+		ACB5733527AEE81F00FCB998 /* OptionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsController.swift; sourceTree = "<group>"; };
+		ACB5733927B2950400FCB998 /* SweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SweetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +95,8 @@
 				AC1E882D2782E90D00058206 /* Assets.xcassets */,
 				AC1E882F2782E90D00058206 /* LaunchScreen.storyboard */,
 				AC1E88322782E90D00058206 /* Info.plist */,
-				ACB572F527987F8200FCB998 /* Options.swift */,
 				AC1E884D2789FE5C00058206 /* ListTableViewController.swift */,
-				AC1E88382783033100058206 /* MenuTableViewController.swift */,
+				ACB5733927B2950400FCB998 /* SweetTableViewCell.swift */,
 			);
 			path = DrinkAPP;
 			sourceTree = "<group>";
@@ -114,7 +117,8 @@
 			children = (
 				AC1E884227848E9800058206 /* OptionsViewController.swift */,
 				AC1E884027848E7D00058206 /* OptionsTableViewCell.swift */,
-				AC1E884B2789ECB900058206 /* OptionsResult.swift */,
+				ACB5733327AEE7F000FCB998 /* OptionsResultModels.swift */,
+				ACB5733527AEE81F00FCB998 /* OptionsController.swift */,
 			);
 			path = Options;
 			sourceTree = "<group>";
@@ -126,8 +130,18 @@
 				AC1E884F278AC57100058206 /* ListTableViewCell.swift */,
 				AC1E88462788AFF800058206 /* ListResponsesModels.swift */,
 				AC1E88442788A90700058206 /* ListController.swift */,
+				ACB5733827AEEAF900FCB998 /* ChangeList */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		ACB5733827AEEAF900FCB998 /* ChangeList */ = {
+			isa = PBXGroup;
+			children = (
+				ACB5732D27ABF63900FCB998 /* ChangeListViewController.swift */,
+				ACB5733127AEE5F500FCB998 /* ChangeListController.swift */,
+			);
+			path = ChangeList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,18 +219,20 @@
 				AC1E884327848E9800058206 /* OptionsViewController.swift in Sources */,
 				AC1E88472788AFF800058206 /* ListResponsesModels.swift in Sources */,
 				AC1E884E2789FE5C00058206 /* ListTableViewController.swift in Sources */,
+				ACB5732E27ABF63900FCB998 /* ChangeListViewController.swift in Sources */,
 				AC1E88452788A90700058206 /* ListController.swift in Sources */,
-				AC1E884C2789ECB900058206 /* OptionsResult.swift in Sources */,
 				AC1E88272782E90C00058206 /* SceneDelegate.swift in Sources */,
+				ACB5733627AEE81F00FCB998 /* OptionsController.swift in Sources */,
 				ACB5732A27A90E1600FCB998 /* MenuViewController.swift in Sources */,
 				AC1E883B2783040600058206 /* MenuTableViewCell.swift in Sources */,
+				ACB5733A27B2950400FCB998 /* SweetTableViewCell.swift in Sources */,
 				ACB5732627A1BE8F00FCB998 /* ListViewController.swift in Sources */,
-				AC1E88392783033100058206 /* MenuTableViewController.swift in Sources */,
+				ACB5733227AEE5F500FCB998 /* ChangeListController.swift in Sources */,
+				ACB5733427AEE7F000FCB998 /* OptionsResultModels.swift in Sources */,
 				AC1E884127848E7D00058206 /* OptionsTableViewCell.swift in Sources */,
 				AC1E883F27830F9100058206 /* MenuController.swift in Sources */,
 				AC1E8850278AC57100058206 /* ListTableViewCell.swift in Sources */,
 				AC1E883D27830CC200058206 /* MenuResponseModels.swift in Sources */,
-				ACB572F627987F8200FCB998 /* Options.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

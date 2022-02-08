@@ -47,7 +47,7 @@ class OptionsViewController: UIViewController {
             sizeLabel.text = sizeOptionString
         }
     }
-
+    
     
     //    init?(_ coder: NSCoder, options: Fields) {
     //        self.options = options
@@ -60,7 +60,9 @@ class OptionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = UIColor(red: 252/255, green: 216/255, blue: 180/255, alpha: 1)
+        //        view.backgroundColor = UIColor(red: 252/255, green: 216/255, blue: 180/255, alpha: 1)
+        print("view didload")
+        
         drinkName.text = options?.content
         drinkDetail.text = options?.detail
         priceLabel.text = "NT$\(options?.price ?? 0)"
@@ -85,53 +87,12 @@ class OptionsViewController: UIViewController {
         if let indexPath = optionsTableView.indexPathForRow(at: point) {
             print(indexPath)
             
-            //            let cells = optionsTableView.visibleCells
-            //            let iceCount = (options?.ice?.count ?? 0) - 1
-            //            let sweetCount = ( options?.sweet?.count ?? 0) - 1
-            //            let sizeCount = (options?.size?.count ?? 0) - 1
-            
-            if indexPath[0] == 0
-            //              , (optionsTableView.numberOfRows(inSection: 0) != 0)
-            {
+            if indexPath[0] == 0 {
                 iceOptionString = options?.ice?[indexPath[1]] ?? ""
-                
-                //                for (index, cell) in cells.enumerated() {
-                //                    if (optionsTableView.numberOfRows(inSection: 0) != 0) {
-                //                        (cell as? OptionsTableViewCell)?.setBtnStyle(isActive: false)
-                //                    }
-                //                }
-                
-            }else if indexPath[0] == 1
-            //                        , (optionsTableView.numberOfRows(inSection: 1) != 0)
-            {
+            }else if indexPath[0] == 1 {
                 sweetOptionString = options?.sweet?[indexPath[1]] ?? ""
-                
-                //                for (index, cell) in cells.enumerated() {
-                //                    if (optionsTableView.numberOfRows(inSection: 1) != 0) {
-                //                        (cell as? OptionsTableViewCell)?.setBtnStyle(isActive: false)
-                //                    }
-                //                }
-                //                for _ in (iceCount)...(iceCount + sweetCount) {
-                //                    optionsTableView.visibleCells.forEach ({
-                //                        ($0 as? OptionsTableViewCell)?.setBtnStyle(isActive: false)
-                //                    })
-                //                }
-                
-            }else if indexPath[0] == 2
-            //                        , (optionsTableView.numberOfRows(inSection: 2) != 0)
-            {
+            }else if indexPath[0] == 2 {
                 sizeOptionString = options?.size?[indexPath[1]] ?? ""
-                
-                //                for (index, cell) in cells.enumerated() {
-                //                    if indexPath.section == 2 {
-                //                        (cell as? OptionsTableViewCell)?.setBtnStyle(isActive: false)
-                //                    }
-                //                }
-                //                for _ in (iceCount + sweetCount)...(iceCount + sweetCount + sizeCount) {
-                //                    optionsTableView.visibleCells.forEach ({
-                //                        ($0 as? OptionsTableViewCell)?.setBtnStyle(isActive: false)
-                //                    })
-                //                }
             }else{
                 
             }
@@ -148,10 +109,10 @@ class OptionsViewController: UIViewController {
         guard iceOptionString == "" || sizeOptionString == "" else {
             
             if sweetOptionString != "" || sweetOptionString == "固定" {
-                ListController.shared.optionsResult = OptionsResult(content: options?.content ?? "", ice: iceOptionString, sweet: sweetOptionString, size: sizeOptionString, price: options?.price ?? 0, image: options?.image?[0].url)
+                let optionsResult = CreateRecords.init(id: nil, fields: .init(name: options?.name ?? "", ice: iceOptionString, sweet: sweetOptionString, size: sizeOptionString, price: options?.price ?? 0, cups: 1, image: [.init(url: options?.image?[0].url)]))
                 
                 if let url = URL(string: "https://api.airtable.com/v0/appXPLodmoXD2uSII/List") {
-                    ListController.shared.createDrinkList(getURL: url) { (records) in
+                    OptionsController.shared.createDrinkList(getURL: url, optionsResult: optionsResult) { (records) in
                         switch records {
                         case .success(let records):
                             print(records)
@@ -170,7 +131,7 @@ class OptionsViewController: UIViewController {
     }
     
     func alterError() {
-        let controller = UIAlertController(title: "!!還沒選完喔!!", message: "再選吧", preferredStyle: .alert)
+        let controller = UIAlertController(title: "還沒選完喔!!", message: "繼續選吧", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         controller.addAction(action)
         present(controller, animated: true, completion: nil)
@@ -185,9 +146,9 @@ class OptionsViewController: UIViewController {
      }
      */
     
-    }
-    
-    extension OptionsViewController: UITableViewDataSource {
+}
+
+extension OptionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -195,8 +156,8 @@ class OptionsViewController: UIViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(OptionsTableViewCell.self)", for: indexPath) as? OptionsTableViewCell else {
                 return UITableViewCell()
             }
-            let option = options?.ice?[indexPath.row]
-            cell.optionsLabel.text = option
+            let iceString = options?.ice?[indexPath.row]
+            cell.optionsLabel.text = iceString
             
             let tag = indexPath.row
             cell.optionsButton.tag = tag;
@@ -214,26 +175,41 @@ class OptionsViewController: UIViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(OptionsTableViewCell.self)", for: indexPath) as? OptionsTableViewCell else {
                 return UITableViewCell()
             }
-            let option = options?.sweet?[indexPath.row]
-            cell.optionsLabel.text = option
-            
+            let sweetString = options?.sweet?[indexPath.row]
+            cell.optionsLabel.text = sweetString
+
             if cell.optionsLabel.text == "固定" {
                 cell.optionsButton.setImage(UIImage(systemName: "record.circle"), for: .normal)
             }else if cell.optionsLabel.text != "固定"{
-                let tag = indexPath.row + (options?.ice?.count ?? 0)
+                let tag = indexPath.row
                 cell.optionsButton.tag = tag;
-                cell.optionsButton.addTarget(self, action: #selector(selectOptions), for: .touchUpInside)
+                cell.optionsButton.addTarget(self, action: #selector(selectOptions(_:)), for: .touchUpInside)
                 cell.optionsButton.setImage(UIImage(systemName: (sweetSelect[tag] ?? false ) ? "record.circle" :"circle"), for: .normal)
-                print(tag)
+//                print(tag)
             }
-            
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(SweetTableViewCell.self)", for: indexPath) as? SweetTableViewCell else {
+//                return UITableViewCell()
+//            }
+//            let sweetString = options?.sweet?[indexPath.row]
+//            cell.optionsLabel.text = sweetString
+//
+//            if cell.optionsLabel.text == "固定" {
+//                cell.optionsButton.setImage(UIImage(systemName: "record.circle"), for: .normal)
+//            }else if cell.optionsLabel.text != "固定"{
+//                let tag = indexPath.row
+//                cell.optionsButton.tag = tag;
+//                cell.optionsButton.addTarget(self, action: #selector(sweetSelectOptions(_:)), for: .touchUpInside)
+//                cell.optionsButton.setImage(UIImage(systemName: (sweetSelect[tag] ?? false ) ? "record.circle" :"circle"), for: .normal)
+//                print(tag)
+//            }
+//
             return cell
         }else if indexPath.section == 2 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(OptionsTableViewCell.self)", for: indexPath) as? OptionsTableViewCell else {
                 return UITableViewCell()
             }
-            let option = options?.size?[indexPath.row]
-            cell.optionsLabel.text = option
+            let sizeString = options?.size?[indexPath.row]
+            cell.optionsLabel.text = sizeString
             
             let tag = (indexPath.row + (options?.ice!.count ?? 0) + (options?.sweet?.count ?? 0))
             cell.optionsButton.tag = tag
@@ -274,8 +250,8 @@ class OptionsViewController: UIViewController {
     
     //setBtnStyle(isActive: true)
     //    }
-    @objc func selectOptions(_ sender: UIButton, tag: Int) {
-        
+    @objc func selectOptions(_ sender: UIButton) {
+        print("\(sender.tag)")
         let iceCount = options?.ice?.count ?? 0
         let sweetCount = options?.sweet?.count ?? 0
         let sizeCount = options?.size?.count ?? 0
@@ -298,6 +274,8 @@ class OptionsViewController: UIViewController {
         }
         
     }
+    
+
     
     func clearTempCellStyle() {
         optionsTableView.visibleCells.forEach({
@@ -337,6 +315,5 @@ class OptionsViewController: UIViewController {
         }
     }
     
-    
-    }
+}
 //}

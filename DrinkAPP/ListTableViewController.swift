@@ -98,7 +98,7 @@ class ListTableViewController: UITableViewController {
 //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 //        }
         if let url = URL(string: "https://api.airtable.com/v0/appXPLodmoXD2uSII/List/" + "\(list[indexPath.row].id ?? "")") {
-            ListController.shared.deleteList(getURL: url)
+            ChangeListController.shared.deleteList(getURL: url)
         }
         
         list.remove(at: indexPath.row)
